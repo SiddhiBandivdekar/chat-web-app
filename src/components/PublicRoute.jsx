@@ -1,14 +1,14 @@
 import React from "react";
 import { Navigate } from "react-router";
 
-const PublicRoute = ({ children, ...routeProps }) => {
-  const profile = false;
+const PublicRoute = ({ element }) => {
+  const profile = false; 
 
   if (profile) {
     return <Navigate to="/" />;
   }
 
-  return <div {...routeProps}>{children}</div>;
+  return element;
 };
 
 export default PublicRoute;
