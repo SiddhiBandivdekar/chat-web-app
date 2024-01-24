@@ -6,13 +6,16 @@ import SignIn from "./pages/SignIn";
 import PrivateRoute from "./components/PrivateRoute";
 import Home from "./pages/Home";
 import PublicRoute from "./components/PublicRoute";
+import { ProfileProvider } from "./context/profile.context";
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/signin" element={<PublicRoute element={<SignIn />} />} />
-      <Route path="/" element={<PrivateRoute element={<Home />} />} />
-    </Routes>
+    <ProfileProvider>
+      <Routes>
+        <Route path="/signin" element={<PublicRoute element={<SignIn />} />} />
+        <Route path="/" element={<PrivateRoute element={<Home />} />} />
+      </Routes>
+    </ProfileProvider>
   );
 };
 
