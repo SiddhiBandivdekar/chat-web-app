@@ -11,6 +11,7 @@ import { set, ref as dbRef } from "firebase/database";
 
 import { database, storage } from "../../misc/firebase";
 import { useProfile } from "../../context/profile.context";
+import ProfileAvatar from "./ProfileAvatar";
 
 const fileInputTypes = ".png, .jpeg, .jpg";
 
@@ -63,7 +64,6 @@ const AvatarUploadBtn = () => {
         `/profiles/${profile.uid}/avatar`
       );
 
-   
       await uploadBytes(avatarFileRef, blob, {
         cacheControl: `public, max-age=${3600 * 24 * 3}`,
       });
@@ -82,6 +82,11 @@ const AvatarUploadBtn = () => {
 
   return (
     <div className="mt-3 text-center">
+      <ProfileAvatar
+        src={profile.avatar}
+        name={profile.name}
+        className="width-200 height-200 img-fullsize font-huge"
+      />
       <div>
         <label htmlFor="avatar-upload" className="d-block cursor-pointer">
           Select a new avatar
