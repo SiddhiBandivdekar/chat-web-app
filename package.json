@@ -16,6 +16,7 @@
     "react-scripts": "5.0.1",
     "rsuite": "^5.49.0",
     "sass": "^1.69.7",
+    "timeago-react": "^3.0.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
